@@ -20,13 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createBoard();
 
-    //generate random 2 on board 2 times
+    //generate random 2 on board
     function generate() {
         let randomNumber = Math.floor(Math.random() * squares.length)
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
             checkForGameOver()
         } else generate()
+        addStyling()
     }
 
     //swipe right
@@ -144,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForWin()
     }
 
-    //assing keycode
+    //assing keycode PC
     function control(e) {
         if(e.keyCode === 39) {
             keyRight()
@@ -158,6 +159,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('keyup', control)
+
+    //check for swipe mobile
+
+    document.addEventListener('touchstart', handleTouchStart, false);        
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;                                                        
+    var yDown = null;
+
+    function getTouches(evt) {
+        return evt.touches
+    }                                                     
+
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                keyLeft()
+            } else {
+                keyRight()
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                keyUp()
+            } else { 
+                keyDown()
+            }                                                                 
+        }
+        
+        xDown = null;
+        yDown = null;                                             
+    };
 
     function keyRight() {
         moveRight()
@@ -211,5 +259,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //add styling to different numbers
+    function addStyling() {
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].className = '';
+            if (squares[i].innerHTML == 0) {
+                squares[i].classList.add('zero')
+            } else if (squares[i].innerHTML == 2) {
+                squares[i].classList.add('two')
+            } else if (squares[i].innerHTML == 4) {
+                squares[i].classList.add('four')
+            } else if (squares[i].innerHTML == 8) {
+                squares[i].classList.add('eight')
+            } else if (squares[i].innerHTML == 16) {
+                squares[i].classList.add('sixteen')
+            } else if (squares[i].innerHTML == 32) {
+                squares[i].classList.add('thirtytwo')
+            } else if (squares[i].innerHTML == 64) {
+                squares[i].classList.add('sixfour')
+            } else if (squares[i].innerHTML == 128) {
+                squares[i].classList.add('ontwoei')
+            } else if (squares[i].innerHTML == 256) {
+                squares[i].classList.add('twfisi')
+            } else if (squares[i].innerHTML == 512) {
+                squares[i].classList.add('fionetwo')
+            } else if (squares[i].innerHTML == 1024) {
+                squares[i].classList.add('oneotwfo')
+            } else if (squares[i].innerHTML == 2048) {
+                squares[i].classList.add('win')
+            } 
+        }
+    }
 
 })

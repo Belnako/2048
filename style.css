@@ -1,10 +1,16 @@
+html, body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
     width: 400px;
     height: 400px;
     padding: 3px;
-    background-color: aqua;
+    background-color: #bbb;
 }
 
 .grid div {
@@ -14,4 +20,80 @@
     background-color: rgb(255, 252, 205);
     font-size: 1.5rem;
     text-align: center;
+}
+
+.grid .zero {
+    background-color: #eee;
+}
+
+.grid .two {
+    background-color: rgb(255, 252, 205);
+}
+
+.grid .four {
+    background-color: rgb(252, 220, 178);
+}
+
+.grid .eight {
+    background-color: rgb(253, 199, 155);
+}
+
+.grid .sixteen {
+    background-color: rgb(253, 178, 155);
+}
+
+.grid .thirtytwo {
+    background-color: rgb(253, 155, 155);
+}
+
+.grid .sixfour {
+    background-color: rgb(253, 155, 196);
+}
+
+.grid .ontwoei {
+    background-color: rgb(253, 155, 248);
+}
+
+.grid .twfisi {
+    background-color: rgb(206, 155, 253);
+}
+
+.grid .fionetwo {
+    background-color: rgb(165, 155, 253);
+}
+
+.grid .oneotwfo {
+    background-color: rgb(155, 189, 253);
+}
+
+.grid .win {
+    background-color: rgb(155, 253, 180);
+}
+
+@media (max-width: 450px) {
+    .grid {
+        width: 348px;
+        height: 348px;
+        padding: 3px;
+    }
+
+    .grid div {
+        width: 81px;
+        height: 81px;
+        margin: 3px;
+    }
+}
+
+@media (max-width: 400px) {
+    .grid {
+        width: 324px;
+        height: 324px;
+        padding: 3px;
+    }
+
+    .grid div {
+        width: 75px;
+        height: 75px;
+        margin: 3px;
+    }
 }
