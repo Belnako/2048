@@ -121,7 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //adding numbers
     function combineRow() {
         for (let i = 0; i < 15; i++) {
-            if (squares[i].innerHTML === squares[i + 1].innerHTML) {
+            if (squares[i].innerHTML === squares[i + 1].innerHTML && 
+                (i + 1) % 4 != 0) {
+                console.log(i + 1)
                 let combinedTotal = parseInt(squares[i].innerHTML*2)
                 squares[i].innerHTML = combinedTotal
                 squares[i+1].innerHTML = 0
@@ -189,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var xDiff = xDown - xUp;
         var yDiff = yDown - yUp;
 
-        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
             if ( xDiff > 0 ) {
                 keyLeft()
             } else {

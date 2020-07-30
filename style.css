@@ -2,11 +2,17 @@ html, body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    width: 100vw;
+}
+
+.container {
+    margin: 0 auto;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
     width: 400px;
     height: 400px;
     padding: 3px;
@@ -15,11 +21,12 @@ html, body {
 
 .grid div {
     width: 94px;
-    height: 94px;
+    height: 64px;
     margin: 3px;
     background-color: rgb(255, 252, 205);
     font-size: 1.5rem;
     text-align: center;
+    padding-top: 30px;
 }
 
 .grid .zero {
@@ -27,47 +34,47 @@ html, body {
 }
 
 .grid .two {
-    background-color: rgb(255, 252, 205);
+    background-color: rgb(255, 253, 221);
 }
 
 .grid .four {
-    background-color: rgb(252, 220, 178);
+    background-color: rgb(255, 231, 199);
 }
 
 .grid .eight {
-    background-color: rgb(253, 199, 155);
+    background-color: rgb(255, 218, 188);
 }
 
 .grid .sixteen {
-    background-color: rgb(253, 178, 155);
+    background-color: rgb(255, 205, 190);
 }
 
 .grid .thirtytwo {
-    background-color: rgb(253, 155, 155);
+    background-color: rgb(255, 184, 184);
 }
 
 .grid .sixfour {
-    background-color: rgb(253, 155, 196);
+    background-color: rgb(255, 188, 216);
 }
 
 .grid .ontwoei {
-    background-color: rgb(253, 155, 248);
+    background-color: rgb(255, 194, 252);
 }
 
 .grid .twfisi {
-    background-color: rgb(206, 155, 253);
+    background-color: rgb(226, 195, 255);
 }
 
 .grid .fionetwo {
-    background-color: rgb(165, 155, 253);
+    background-color: rgb(191, 184, 255);
 }
 
 .grid .oneotwfo {
-    background-color: rgb(155, 189, 253);
+    background-color: rgb(184, 209, 255);
 }
 
 .grid .win {
-    background-color: rgb(155, 253, 180);
+    background-color: rgb(189, 255, 205);
 }
 
 @media (max-width: 450px) {
@@ -79,7 +86,7 @@ html, body {
 
     .grid div {
         width: 81px;
-        height: 81px;
+        height: 51px;
         margin: 3px;
     }
 }
@@ -93,7 +100,8 @@ html, body {
 
     .grid div {
         width: 75px;
-        height: 75px;
+        height: 50px;
         margin: 3px;
+        padding-top: 25px;
     }
 }
