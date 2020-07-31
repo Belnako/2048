@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 15; i++) {
             if (squares[i].innerHTML === squares[i + 1].innerHTML && 
                 (i + 1) % 4 != 0) {
-                console.log(i + 1)
                 let combinedTotal = parseInt(squares[i].innerHTML*2)
                 squares[i].innerHTML = combinedTotal
                 squares[i+1].innerHTML = 0
