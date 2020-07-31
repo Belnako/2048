@@ -4,20 +4,37 @@ html, body {
     margin: 0;
     width: 100vw;
     overflow-y: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
-    margin: 0 auto;
+    margin: 5%;
+}
+
+.header {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h1 {
+    background-color: #bbb;
+    color: white;
+    padding: 10px;
+    display: inline;
+    border-radius: 5px;
+    z-index: -1;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
     width: 400px;
     height: 400px;
     padding: 3px;
     background-color: #bbb;
+    border-radius: 5px;
 }
 
 .grid div {
@@ -28,6 +45,7 @@ html, body {
     font-size: 1.5rem;
     text-align: center;
     padding-top: 30px;
+    border-radius: 5px;
 }
 
 .grid .zero {
@@ -39,43 +57,48 @@ html, body {
 }
 
 .grid .four {
-    background-color: rgb(255, 231, 199);
+    background-color: rgb(255, 237, 213);
 }
 
 .grid .eight {
-    background-color: rgb(255, 218, 188);
+    background-color: rgb(255, 230, 210);
 }
 
 .grid .sixteen {
-    background-color: rgb(255, 205, 190);
+    background-color: rgb(255, 221, 211);
 }
 
 .grid .thirtytwo {
-    background-color: rgb(255, 184, 184);
+    background-color: rgb(255, 211, 211);
 }
 
 .grid .sixfour {
-    background-color: rgb(255, 188, 216);
+    background-color: rgb(255, 211, 229);
 }
 
 .grid .ontwoei {
-    background-color: rgb(255, 194, 252);
+    background-color: rgb(253, 214, 251);
 }
 
 .grid .twfisi {
-    background-color: rgb(226, 195, 255);
+    background-color: rgb(233, 210, 255);
 }
 
 .grid .fionetwo {
-    background-color: rgb(191, 184, 255);
+    background-color: rgb(221, 217, 255);
 }
 
 .grid .oneotwfo {
-    background-color: rgb(184, 209, 255);
+    background-color: rgb(211, 226, 255);
 }
 
 .grid .win {
     background-color: rgb(189, 255, 205);
+}
+
+#result {
+    color: rgb(179, 15, 15);
+    font-weight: 800;
 }
 
 @media (max-width: 450px) {
