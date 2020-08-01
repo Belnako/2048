@@ -242,6 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (squares[i].innerHTML == 2048) {
                 resultDisplay.innerHTML = 'You won!'
                 document.removeEventListener('keyup', control)
+                document.removeEventListener('touchstart', handleTouchStart, false);        
+                document.removeEventListener('touchmove', handleTouchMove, false);
             }
         }
     }
@@ -257,6 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (zeros === 0) {
             resultDisplay.innerHTML = 'Game Over'
             document.removeEventListener('keyup', control)
+            document.removeEventListener('touchstart', handleTouchStart, false);        
+            document.removeEventListener('touchmove', handleTouchMove, false);
         }
     }
 
