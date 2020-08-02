@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDisplay = document.getElementById('result')
     const width = 4
     let squares = []
+    let lastMove = []
     let moves = 0
 
     //create board display
@@ -26,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
             checkForGameOver()
-        } else generate()
+        } else {
+            generate()
+        }
         addStyling()
     }
 
@@ -209,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function keyRight() {
+        saveLastMove()
         moveRight()
         combineRow()
         moveRight()
@@ -216,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function keyLeft() {
+        saveLastMove()
         moveLeft()
         combineRow()
         moveLeft()
@@ -223,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function keyDown() {
+        saveLastMove()
         moveDown()
         combineColumn()
         moveDown()
@@ -230,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function keyUp() {
+        saveLastMove()
         moveUp()
         combineColumn()
         moveUp()
@@ -292,8 +299,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares[i].classList.add('oneotwfo')
             } else if (squares[i].innerHTML == 2048) {
                 squares[i].classList.add('win')
-            } 
+            }
         }
     }
+
+    // undo last move
+    function saveLastMove() {
+        lastMove = []
+        for (let i = 0; i < squares.length; i++) {
+            lastMove.push(JSON.parse(squares[i].innerHTML))
+        }
+    }
+
+    document.querySelector('.undo').addEventListener('click', () => {
+        for (let i = 0; i < lastMove.length; i++) {
+            gridDisplay.childNodes[i].innerHTML = lastMove[i]
+            addStyling()
+        }
+    })
+
+    //reset the game
+    document.querySelector('.reload').addEventListener('click', () => {
+        window.location.reload()
+    })
+
 
 })
