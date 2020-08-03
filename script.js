@@ -314,8 +314,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.undo').addEventListener('click', () => {
         for (let i = 0; i < lastMove.length; i++) {
             gridDisplay.childNodes[i].innerHTML = lastMove[i]
-            addStyling()
         }
+        moves--
+        addStyling()
     })
 
     //reset the game

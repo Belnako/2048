@@ -13,18 +13,20 @@ html, body {
 
 .header {
     display: flex;
-    width: 400px;
+    width: 394px;
     justify-content: space-between;
-    align-items: flex-end;
-}
-
-h1 {
+    align-items: center;
     background-color: #bbb;
     color: white;
-    padding: 10px;
-    display: inline;
     border-radius: 5px;
-    z-index: -1;
+    margin-bottom: -10px;
+    padding: 0 6px 10px 6px;
+}
+
+.undo, .reload {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .grid {
