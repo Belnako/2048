@@ -1,3 +1,7 @@
+:root {
+    --bg: #807e9a;
+}
+
 html, body {
     box-sizing: border-box;
     padding: 0;
@@ -5,28 +9,36 @@ html, body {
     width: 100vw;
     overflow-y: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #fff;
 }
 
 .container {
     margin: 7%;
 }
 
+.game {
+    position: relative;
+    background: var(--bg);
+    width: 406px;
+    border-radius: 10px;
+}
+
 .header {
     display: flex;
-    width: 394px;
     justify-content: space-between;
     align-items: center;
-    background-color: #bbb;
-    color: white;
-    border-radius: 5px;
-    margin-bottom: -10px;
-    padding: 0 6px 10px 6px;
+    color: #fff;
+    padding: 0 10px;
 }
 
 .undo, .reload {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid white;
+    border: 1px solid #fff;
+}
+
+.undo:hover, .reload:hover {
+    cursor: pointer;
 }
 
 .grid {
@@ -35,18 +47,17 @@ html, body {
     width: 400px;
     height: 400px;
     padding: 3px;
-    background-color: #bbb;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .grid div {
     width: 94px;
-    height: 64px;
+    height: 59px;
     margin: 3px;
     background-color: rgb(255, 252, 205);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 35px;
     border-radius: 5px;
 }
 
@@ -99,13 +110,23 @@ html, body {
 }
 
 #result {
-    color: rgb(179, 15, 15);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 30%;
+    left: 15%;
+    width: 70%;
+    padding: 25% 0;
+    border-radius: 10px;
+    color: white;
     font-weight: 800;
+    font-size: 1.7rem;
+    text-align: center;
+    visibility: hidden;
 }
 
 @media (max-width: 450px) {
-    .header {
-        width: 342px;
+    .game {
+        width: 354px;
     }
 
     .grid {
@@ -116,14 +137,15 @@ html, body {
 
     .grid div {
         width: 81px;
-        height: 51px;
+        height: 56px;
+        padding-top: 25px;
         margin: 3px;
     }
 }
 
 @media (max-width: 400px) {
-    .header {
-        width: 318px;
+    .game {
+        width: 330px;
     }
 
     .grid {
