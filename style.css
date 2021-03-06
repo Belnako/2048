@@ -21,6 +21,7 @@ html, body {
     background: var(--bg);
     width: 406px;
     border-radius: 10px;
+    margin-bottom: 25px;
 }
 
 .header {
@@ -31,13 +32,18 @@ html, body {
     padding: 0 10px;
 }
 
-.undo, .reload {
+.undo, .reload, .save {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #fff;
 }
 
-.undo:hover, .reload:hover {
+.save {
+    display: inline;
+    border: 1px solid var(--bg);
+}
+
+.undo:hover, .reload:hover, .save:hover {
     cursor: pointer;
 }
 

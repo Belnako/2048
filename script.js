@@ -217,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         combineRow()
         moveRight()
         generate()
+        setSavedGame();
     }
 
     function keyLeft() {
@@ -225,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         combineRow()
         moveLeft()
         generate()
+        setSavedGame();
     }
 
     function keyDown() {
@@ -233,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         combineColumn()
         moveDown()
         generate()
+        setSavedGame();
     }
 
     function keyUp() {
@@ -241,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         combineColumn()
         moveUp()
         generate()
+        setSavedGame();
     }
 
     //check for win
@@ -307,7 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // undo last move
     function saveLastMove() {
-        lastMove = []
         for (let i = 0; i < squares.length; i++) {
             lastMove.push(JSON.parse(squares[i].innerHTML))
         }
@@ -326,5 +329,24 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.reload()
     })
 
+    //Cache
+
+    function setSavedGame() {
+        for (let i = 0; i < squares.length; i++) {
+            localStorage.setItem(`savedGameSquare${i}`, JSON.stringify(squares[i].innerHTML));
+        }
+        localStorage.setItem('moves', JSON.stringify(moves));
+    }
+
+    document.querySelector('.save').addEventListener('click', () => {
+        for (let i = 0; i < squares.length; i++) {
+            let savedgameValue = localStorage.getItem(`savedGameSquare${i}`);
+            let savedMoves = localStorage.getItem('moves');
+            squares[i].innerHTML = JSON.parse(savedgameValue);
+            moves = JSON.parse(savedMoves);
+            moveDisplay.innerHTML = moves;
+            addStyling();
+        }
+    })
 
 })
